@@ -1,11 +1,17 @@
-# yolo-trained-models
-How to train your own YOLO model
+# YOLO-Trained-Models
 
+This guide explains how to train your own YOLO model using the Open Images dataset.
 
-pick from any of the https://github.com/dusty-nv/pytorch-ssd/blob/master/open_images_classes.txt 600 classes in the Open Images dataset to train your model on. You can visually browse the dataset here. https://storage.googleapis.com/openimages/web/visualizer/index.html?set=train&type=detection&c=%2Fm%2F031b6r
+## Step 1: Choose Classes from Open Images Dataset
 
-Use this to download the images. Change class-name to your desired class which you can find on the links provided above.
-$ python3 open_images_downloader.py --max-images=3000 --class-names "Human eye" --data=data/eye
+You can pick from any of the 600 classes in the Open Images dataset to train your model. The list of classes can be found [here](https://github.com/dusty-mv/pytorch-ssd/blob/master/open_images_classes.txt). You can also visually browse the dataset [here](https://storage.googleapis.com/openimages/web/visualizer/index.html?set=train&type=detection&c=-%2Fm%2F031b6r).
+
+## Step 2: Download Images
+
+Use the following command to download images. Replace `class-name` with your desired class from the list provided above.
+
+```bash
+python3 open_images_downloader.py --max-images=3000 --class-names "Human eye" --data=data/eye
 
 After downloading images its time to train the model. Using the repo of yolo https://github.com/ultralytics/ultralytics/tree/main?tab=readme-ov-file , we can train the model.
 Upload files train, valid and to the roboflox. Export the model as yolo 11 (our case).
